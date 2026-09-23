@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Demo — AI car-rental enquiry assistant | Mountain AI</title>
+<style>
+:root{--bg:#eef2f7;--ink:#0f1b2d;--me:#d9fdd3;--bot:#fff;--brand:#1f5eff;--muted:#5b6778;--card:#fff;--line:#dfe5ee}
+@media (prefers-color-scheme:dark){:root{--bg:#0c121c;--ink:#e8edf5;--me:#1f4d2c;--bot:#1a2433;--muted:#a3adbd;--card:#141c28;--line:#243043}}
+body{margin:0;font:15px/1.45 -apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:980px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1fr 320px;gap:16px}
+@media(max-width:760px){.wrap{grid-template-columns:1fr}}
+h1{font-size:20px;margin:16px auto 0;max-width:980px;padding:0 16px}.note{color:var(--muted);max-width:980px;margin:4px auto;padding:0 16px}
+.chat{background:var(--card);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;height:560px}
+.log{flex:1;overflow:auto;padding:14px}.msg{max-width:80%;padding:8px 12px;border-radius:10px;margin:6px 0;white-space:pre-wrap}
+.bot{background:var(--bot);border:1px solid var(--line)}.me{background:var(--me);margin-left:auto}
+form{display:flex;border-top:1px solid var(--line)}input{flex:1;padding:12px;border:0;background:transparent;color:var(--ink);font-size:15px}
+button{border:0;background:var(--brand);color:#fff;padding:0 18px;font-weight:600;border-radius:0 0 14px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.panel h2{font-size:16px;margin:0 0 8px}.kv{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0}
+.kv span:first-child{color:var(--muted)}.hot{color:#0a8f3c;font-weight:700}.chips button{margin:4px 4px 0 0;border-radius:16px;padding:6px 10px;font-size:13px}
+</style></head><body>
+<h1>AI enquiry assistant — car rental (demo)</h1>
+<p class="note">Illustrative demo with sample prices. Runs entirely in your browser; nothing is sent anywhere. In a real deployment it runs on your WhatsApp number with your live prices.</p>
+<div class="wrap"><div class="chat"><div class="log" id="log"></div>
+<form id="f"><input id="i" placeholder="Type like a customer, e.g. need SUV tomorrow at the airport for 5 days" autocomplete="off"><button>Send</button></form></div>
+<div class="panel"><h2>Lead summary (what your staff receive)</h2><div id="lead"></div>
+<div class="chips"><p class="note" style="padding:0">Try:</p>
+<button onclick="say('Hi, how much for a sedan per month?')">Monthly sedan</button>
+<button onclick="say('need an SUV tomorrow at DXB for 5 days')">SUV at DXB</button>
+<button onclick="say('مرحبا اريد سيارة اقتصادية لمدة اسبوع')">Arabic</button></div></div></div>
+<script>
+const PRICES={economy:{d:90,w:550,m:1500},sedan:{d:120,w:700,m:1900},suv:{d:220,w:1300,m:3900},luxury:{d:650,w:3900,m:11000}};
+const L={car:null,days:null,start:null,pickup:null,delivery:null,age:null,name:null};let lang='en';
+const log=document.getElementById('log');
+function add(t,c){const d=document.createElement('div');d.className='msg '+c;d.textContent=t;log.appendChild(d);log.scrollTop=1e9}
+function render(){const f=[['Car',L.car],['Days',L.days],['Start',L.start],['Pickup',L.pickup],['Driver age 21+',L.age],['Name',L.name]];
+let q=f.filter(x=>x[1]).length;document.getElementById('lead').innerHTML=f.map(x=>`<div class="kv"><span>${x[0]}</span><span>${x[1]||'—'}</span></div>`).join('')+
+`<div class="kv"><span>Estimate</span><span>${quote()||'—'}</span></div><p class="${q>=5?'hot':''}">${q>=5?'QUALIFIED — ready for staff to confirm':'Collecting details… ('+q+'/6)'}</p>`}
+function quote(){if(!L.car||!L.days)return'';const p=PRICES[L.car];let n=+L.days,t=n>=28?Math.round(p.m*n/30):n>=7?Math.round(p.w*n/7):p.d*n;return'AED '+t.toLocaleString()+' (sample rate)'}
+function parse(t){const s=t.toLowerCase();if(/[؀-ۿ]/.test(t))lang='ar';
+for(const[k,re]of[['economy',/econom|small|cheap|اقتصاد/],['sedan',/sedan|camry|corolla|سيدان/],['suv',/suv|4x4|jeep|prado|land cruiser|دفع/],['luxury',/luxur|mercedes|bmw|porsche|فاخر/]])if(re.test(s))L.car=k;
+let m=s.match(/(\d+)\s*(day|days|يوم|أيام)/);if(m)L.days=m[1];if(/month|شهر/.test(s))L.days=L.days||'30';if(/week|اسبوع|أسبوع/.test(s))L.days=L.days||'7';
+if(/tomorrow|بكرة|غدا/.test(s))L.start='tomorrow';let d=s.match(/(\d{1,2}[\/.-]\d{1,2})/);if(d)L.start=d[1];if(/today|اليوم/.test(s))L.start='today';
+if(/dxb|airport|terminal|مطار/.test(s))L.pickup='DXB airport';else if(/deliver|hotel|marina|downtown|jlt|توصيل/.test(s))L.pickup='Delivery: '+t.slice(0,40);
+if(/\b(2[1-9]|[3-7]\d)\b/.test(s)&&/age|years|old|عمر/.test(s))L.age='yes';if(/yes|نعم|ok/.test(s)&&ask==='age')L.age='yes';
+let n=t.match(/(?:my name is|i am|i'm|اسمي)\s+([A-Za-z؀-ۿ]+)/i);if(n)L.name=n[1];else if(ask==='name'&&t.trim().split(' ').length<=3)L.name=t.trim()}
+let ask=null;
+function reply(){const ar=lang==='ar';
+if(!L.car){ask='car';return ar?'أهلاً بك! أي نوع سيارة تريد؟ اقتصادية، سيدان، دفع رباعي أو فاخرة؟':'Hi! Which type of car do you need — economy, sedan, SUV or luxury?'}
+if(!L.days){ask='days';return ar?'كم يوماً تحتاج السيارة؟ (لدينا أسعار أسبوعية وشهرية)':'Great choice. For how many days? (Weekly and monthly rates are cheaper.)'}
+if(!L.start){ask='start';return ar?'متى تريد الاستلام؟':'When do you want to pick it up?'}
+if(!L.pickup){ask='pickup';return ar?'الاستلام من المطار أم توصيل لعنوانك؟':'Pick up at DXB airport or should we deliver to your hotel/home?'}
+if(!L.age){ask='age';return ar?'هل عمر السائق 21 سنة أو أكثر ولديه رخصة سارية؟':'Is the driver 21+ with a valid licence?'}
+if(!L.name){ask='name';return ar?'ممتاز! ما اسمك لتأكيد الحجز؟':'Perfect — what name should we reserve it under?'}
+ask=null;return (ar?'شكراً ':'Thanks ')+L.name+'! '+(ar?'التقدير: ':'Estimate: ')+quote()+(ar?'. سيتواصل معك أحد الموظفين خلال دقائق لتأكيد التوفر والدفع.':'. A team member will confirm availability and payment in a few minutes.')}
+function say(t){add(t,'me');parse(t);render();setTimeout(()=>add(reply(),'bot'),350)}
+document.getElementById('f').onsubmit=e=>{e.preventDefault();const i=document.getElementById('i');if(i.value.trim())say(i.value.trim());i.value=''};
+add('Hi 👋 Demo Rent-a-Car assistant here. How can I help?','bot');render();
+</script></body></html>
