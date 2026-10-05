@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Demo — AI car-rental enquiry assistant | Mountain AI</title>
+<link rel="canonical" href="https://mountainai-ae.com/demo/car-rental-assistant.html"><meta property="og:type" content="website"><meta property="og:url" content="https://mountainai-ae.com/demo/car-rental-assistant.html"><meta property="og:title" content="Demo — AI car-rental enquiry assistant"><meta property="og:description" content="Try a sample WhatsApp-style AI enquiry assistant for a UAE car-rental company: it asks car type, dates, pickup or delivery and driver details in English or Arabic, then hands a ready-to-confirm lead to staff."><meta property="og:image" content="https://mountainai-ae.com/assets/og-card-en.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:alt" content="Mountain AI — free demo in 24 hours, 14-day pilot AED 1,500 credited, full setup AED 7,500 + AED 1,250/month"><meta property="og:site_name" content="Mountain AI"><meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Try a sample WhatsApp-style AI enquiry assistant for a UAE car-rental company: it asks car type, dates, pickup or delivery and driver details in English or Arabic, then hands a ready-to-confirm lead to staff.">
+<meta name="robots" content="noindex"><link rel="icon" href="../assets/mountain-ai-logo-512.png">
+<style>
+:root{--bg:#eef2f7;--ink:#0f1b2d;--me:#d9fdd3;--bot:#fff;--brand:#1f5eff;--muted:#5b6778;--card:#fff;--line:#dfe5ee;--ok:#0a8f3c;--warn:#fff6d6}
+@media (prefers-color-scheme:dark){:root{--bg:#0c121c;--ink:#e8edf5;--me:#1f4d2c;--bot:#1a2433;--muted:#a3adbd;--card:#141c28;--line:#243043;--ok:#4fd07f;--warn:#3a3217}}
+*{box-sizing:border-box}body{margin:0;font:15px/1.45 -apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+.banner{background:var(--warn);border-bottom:1px solid var(--line);padding:10px 16px;font-size:13px}.banner b{display:block}
+header{max-width:1000px;margin:0 auto;padding:16px 16px 0}h1{font-size:20px;margin:0}.note{color:var(--muted);margin:4px 0 0}
+.wrap{max-width:1000px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1fr 330px;gap:16px}
+@media(max-width:780px){.wrap{grid-template-columns:1fr}}
+.chat{background:var(--card);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;height:560px;min-width:0}
+.top{padding:10px 14px;border-bottom:1px solid var(--line);font-weight:600;display:flex;justify-content:space-between;gap:8px}.top small{color:var(--muted);font-weight:400}
+.log{flex:1;overflow:auto;padding:14px}.msg{max-width:85%;padding:8px 12px;border-radius:10px;margin:6px 0;white-space:pre-wrap;word-wrap:break-word}
+.bot{background:var(--bot);border:1px solid var(--line)}.me{background:var(--me);margin-left:auto}
+form{display:flex;border-top:1px solid var(--line)}input{flex:1;min-width:0;padding:12px;border:0;background:transparent;color:var(--ink);font-size:16px}
+form button{border:0;background:var(--brand);color:#fff;padding:0 18px;font-weight:600;border-radius:0 0 14px 0;cursor:pointer}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;min-width:0}
+.panel h2{font-size:16px;margin:0 0 8px}.kv{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding:4px 0}
+.kv span:first-child{color:var(--muted);flex:none}.kv span:last-child{text-align:right;overflow-wrap:anywhere}.hot{color:var(--ok);font-weight:700}
+.chips button{margin:4px 4px 0 0;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:16px;padding:6px 10px;font-size:13px;cursor:pointer}
+.reset{margin-top:10px;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:8px;padding:6px 10px;font-size:13px;cursor:pointer}
+.cta{max-width:1000px;margin:0 auto;padding:0 16px 8px}.cta div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.cta h2{font-size:16px;margin:0 0 6px}.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:600;padding:10px 14px;border-radius:10px;margin:8px 8px 0 0}
+.btn.alt{background:transparent;color:var(--brand);border:1px solid var(--brand)}
+footer{max-width:1000px;margin:0 auto;padding:8px 16px 24px;color:var(--muted);font-size:13px}footer a{color:var(--brand)}
+</style></head><body>
+<div class="banner"><b>Demo: "Example Rent-a-Car" is a fictional company and all rates are sample figures.</b>For your company we build this from your own website and rates, free, within 24 hours. Runs entirely in your browser; nothing you type is sent anywhere. Staff always confirm availability and price.</div>
+<header><h1>Example Rent-a-Car (fictional) — AI enquiry assistant (demo)</h1><p class="note">Type like a customer would on WhatsApp — in English or Arabic. On the right is the summary your team would receive.</p></header>
+<div class="wrap"><div class="chat"><div class="top">Example Rent-a-Car assistant <small>replies in seconds · 24/7</small></div><div class="log" id="log" aria-live="polite"></div>
+<form id="f"><input id="i" dir="auto" placeholder="e.g. need an SUV tomorrow at DXB for 5 days" autocomplete="off" aria-label="Your message"><button>Send</button></form></div>
+<div class="panel"><h2>Lead summary for staff</h2><div id="lead"></div>
+<div class="chips" id="chips"><p class="note">Try:</p></div><button type="button" class="reset" id="reset">Start over</button></div></div>
+<section class="cta"><div><h2>Want this on your own WhatsApp number?</h2>
+<p class="note">1) Free demo built from your website in 24 hours. 2) 14-day pilot on your WhatsApp for a fixed AED 1,500, credited in full if you continue. 3) Full setup AED 7,500 + AED 1,250/month.</p>
+<a class="btn" href="https://wa.me/971567773366?text=DEMO%20-%20please%20build%20a%20free%20demo%20for%20our%20car%20rental%20company">Get a free demo for your company</a><a class="btn alt" href="../pilot.html">How the free demo &amp; pilot work</a><a class="btn alt" href="../car-rental.html">How it works for car rental</a><a class="btn alt" href="../guides/rental-enquiry-checklist-car-rental.pdf">Free checklist (PDF)</a><a class="btn alt" href="https://wa.me/971567773366?text=DEMO%20-%20%D9%86%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B9%D8%B1%D8%B6%20%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%20%D9%84%D8%B4%D8%B1%D9%83%D8%A9%20%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1%20%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA" hreflang="ar" lang="ar" dir="rtl">اطلب عرضاً تجريبياً مجانياً عبر واتساب</a><a class="btn alt" href="../guides/rental-enquiry-checklist-car-rental-ar.pdf" hreflang="ar" lang="ar" dir="rtl">قائمة التحقق بالعربية (PDF)</a><a class="btn alt" href="../ar.html" hreflang="ar" lang="ar" dir="rtl">الصفحة العربية</a></div></section>
+<footer>How this would work live: the assistant answers on your own WhatsApp Business number and website, uses only the rates and policies you approve, hands every qualified enquiry to a named staff member, and passes anything it is unsure about to a human. Demo by Mountain AI — Mountain Information Technology Consultants Est., Dubai · <a href="mailto:info@mountainai-ae.com">info@mountainai-ae.com</a> · WhatsApp +971 56 777 3366 · <a href="../index.html">mountainai-ae.com</a></footer>
+<script>
+// SAMPLE rates for the demo only — the live version uses the client's own published rates.
+const PRICES={economy:{d:90,w:550,m:1500},sedan:{d:120,w:700,m:1900},suv:{d:220,w:1300,m:3900},luxury:{d:650,w:3900,m:11000}};
+const CARS={economy:'Economy',sedan:'Sedan',suv:'SUV',luxury:'Luxury'};
+const FAQS=[
+ {k:/deposit|security|تأمين|ضمان/,en:'(Sample policy) A refundable security deposit is taken at pickup. The live version quotes your own deposit and refund timing.',ar:'(سياسة تجريبية) يتم أخذ تأمين مسترد عند الاستلام. النسخة الفعلية تذكر مبلغ التأمين ومدة الاسترداد لديكم.'},
+ {k:/salik|toll|fine|سالك|مخالف/,en:'(Sample policy) Salik tolls and traffic fines are charged to the renter after the rental. The live version uses your own policy and admin fees.',ar:'(سياسة تجريبية) رسوم سالك والمخالفات على المستأجر بعد انتهاء الإيجار. النسخة الفعلية تستخدم سياستكم.'},
+ {k:/insurance|cover|accident|تأمين شامل/,en:'(Sample policy) Basic insurance is included; full cover is available as an add-on. Staff confirm the exact terms.',ar:'(سياسة تجريبية) التأمين الأساسي مشمول، والتأمين الشامل متاح كإضافة. الموظفون يؤكدون الشروط.'},
+ {k:/document|licen[cs]e|passport|idp|visa|وثائق|رخصة|جواز/,en:'(Sample) Residents usually show Emirates ID and a UAE driving licence; visitors show passport, visit visa and their home or international licence. Staff confirm what applies to you.',ar:'(مثال) المقيمون: الهوية الإماراتية ورخصة قيادة إماراتية. الزوار: جواز السفر والتأشيرة ورخصة بلدهم أو رخصة دولية. الموظفون يؤكدون المطلوب.'}
+];
+const FIELDS=['car','days','start','pickup','driver','age','name'];
+const LABELS={car:'Car',days:'Days',start:'Start',pickup:'Pickup / delivery',driver:'Driver',age:'Driver 21+',name:'Name'};
+let L={},lang='en',ask=null,done=false;
+const log=document.getElementById('log');
+function add(t,c){const d=document.createElement('div');d.className='msg '+c;d.dir='auto';d.textContent=t;log.appendChild(d);log.scrollTop=1e9}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function quote(){if(!L.car||!L.days)return'';const p=PRICES[L.car],n=+L.days;const t=n>=28?Math.round(p.m*n/30):n>=7?Math.round(p.w*n/7):p.d*n;return'AED '+t.toLocaleString('en-US')+' (sample rate)'}
+function render(){const q=FIELDS.filter(k=>L[k]).length;
+document.getElementById('lead').innerHTML=FIELDS.map(k=>`<div class="kv"><span>${LABELS[k]}</span><span>${esc(k==='car'&&L.car?CARS[L.car]:(L[k]||'—'))}</span></div>`).join('')+
+`<div class="kv"><span>Estimate</span><span>${esc(quote()||'—')}</span></div><p class="${q===FIELDS.length?'hot':''}">${q===FIELDS.length?'QUALIFIED — ready for staff to confirm':'Collecting details… ('+q+'/'+FIELDS.length+')'}</p>`}
+function faq(s){return FAQS.find(f=>f.k.test(s))}
+function parse(t){const s=t.toLowerCase();if(/[\u0600-\u06FF]/.test(t))lang='ar';
+ for(const[k,re]of[['economy',/econom|small|cheap|yaris|sunny|اقتصاد/],['sedan',/sedan|camry|corolla|altima|سيدان/],['suv',/suv|4x4|jeep|prado|patrol|land cruiser|دفع/],['luxury',/luxur|mercedes|bmw|porsche|range rover|فاخر/]])if(re.test(s))L.car=k;
+ let m=s.match(/(\d+)\s*(day|days|يوم|ايام|أيام)/);if(m)L.days=m[1];
+ m=s.match(/(\d+)\s*(week|weeks|اسبوع|أسبوع|اسابيع)/);if(m)L.days=String(7*m[1]);else if(/week|اسبوع|أسبوع/.test(s)&&!L.days)L.days='7';
+ m=s.match(/(\d+)\s*(month|months|شهر|اشهر|أشهر)/);if(m)L.days=String(30*m[1]);else if(/month|شهر/.test(s)&&!L.days)L.days='30';
+ if(ask==='days'&&!L.days){const n=s.match(/^\s*(\d{1,3})\s*$/);if(n)L.days=n[1]}
+ if(/tomorrow|بكرة|بكره|غدا|غداً/.test(s))L.start='Tomorrow';else if(/today|now|اليوم|الحين/.test(s))L.start='Today';
+ const d=s.match(/\b(\d{1,2}[\/.-]\d{1,2})\b/);if(d)L.start=d[1];
+ const wd=s.match(/\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/);if(wd)L.start=wd[1][0].toUpperCase()+wd[1].slice(1);
+ if(/dxb|dubai airport|airport|terminal|مطار/.test(s))L.pickup=/dwc|al maktoum/.test(s)?'DWC airport':'DXB airport';
+ else if(/deliver|hotel|marina|downtown|jlt|jbr|business bay|home|توصيل|فندق/.test(s))L.pickup='Delivery — '+t.slice(0,40);
+ else if(/branch|office|collect|pick ?up myself|الفرع|المكتب/.test(s))L.pickup='Collect from branch';
+ if(/resident|emirates id|uae licen[cs]e|مقيم/.test(s))L.driver='UAE resident';else if(/tourist|visit|visitor|holiday|سائح|زائر|زيارة/.test(s))L.driver='Visitor';
+ const a=s.match(/\b(1[89]|[2-7]\d)\s*(years|yrs|y\/o|year old|سنة|عام)/)||s.match(/(?:age|aged|عمري|عمر)\s*(1[89]|[2-7]\d)/);
+ if(a){const n=+a[1];L.age=n>=21?'Yes ('+n+')':'Under 21 — staff to review'}
+ else if(ask==='age'&&/^\s*(yes|yeah|yep|ok|sure|نعم|اي|أيوه|ايوه)(?=$|[\s!.,،])/.test(s))L.age='Yes';
+ const nm=t.match(/(?:my name is|i am|i'm|this is|اسمي)\s+([A-Za-z\u0600-\u06FF]+)/i);if(nm&&!/^(a|an|the|here|looking|resident|tourist|visitor|\d)/i.test(nm[1]))L.name=nm[1];
+ else if(ask==='name'&&!L.name&&t.trim().split(/\s+/).length<=3&&!faq(s))L.name=t.trim().slice(0,40);
+ if(ask==='pickup'&&!L.pickup&&t.trim().length>2&&!faq(s))L.pickup=t.trim().slice(0,40);
+ if(ask==='start'&&!L.start&&t.trim().length>1&&!faq(s)&&t.trim().split(/\s+/).length<=5)L.start=t.trim().slice(0,30)}
+const Q={car:['Hi! Which type of car do you need — economy, sedan, SUV or luxury?','أهلاً بك! أي نوع سيارة تريد؟ اقتصادية، سيدان، دفع رباعي أو فاخرة؟'],
+ days:['Great choice. For how many days? (Weekly and monthly rates work out cheaper.)','كم يوماً تحتاج السيارة؟ (الأسعار الأسبوعية والشهرية أوفر)'],
+ start:['When do you want to pick it up?','متى تريد الاستلام؟'],
+ pickup:['Pick up at the airport, collect from our branch, or should we deliver to your hotel/home?','الاستلام من المطار، من الفرع، أم توصيل لعنوانك؟'],
+ driver:['Is the driver a UAE resident or a visitor? (So we tell you exactly which documents to bring.)','هل السائق مقيم في الإمارات أم زائر؟ (لنخبرك بالوثائق المطلوبة)'],
+ age:['Is the driver 21 or older with a valid licence?','هل عمر السائق 21 سنة أو أكثر ولديه رخصة سارية؟'],
+ name:['Perfect — what name should we reserve it under?','ممتاز! ما الاسم لتأكيد الحجز؟']};
+function reply(t){const s=t.toLowerCase(),ar=lang==='ar';let pre='';const f=faq(s);if(f)pre=(ar?f.ar:f.en)+'\n\n';
+ for(const k of FIELDS){if(!L[k]){ask=k;return pre+Q[k][ar?1:0]}}
+ ask=null;if(done)return pre+(ar?'طلبك لدى فريقنا وسيتم الرد عليك قريباً. هل تحتاج شيئاً آخر؟':'Your request is with our team and they will reply shortly. Anything else I can help with?');
+ done=true;const docs=L.driver==='Visitor'?(ar?'جواز السفر والتأشيرة والرخصة':'passport, visa and licence'):(ar?'الهوية الإماراتية والرخصة':'Emirates ID and UAE licence');
+ return pre+(ar?`شكراً ${L.name}! التقدير: ${quote()}. يرجى إحضار ${docs}. سيتواصل معك أحد الموظفين خلال دقائق لتأكيد التوفر والدفع.`:`Thanks ${L.name}! Estimate: ${quote()}. Please bring your ${docs}. A team member will confirm availability and payment in a few minutes.`)}
+function say(t){add(t,'me');parse(t);render();setTimeout(()=>add(reply(t),'bot'),350)}
+document.getElementById('f').onsubmit=e=>{e.preventDefault();const i=document.getElementById('i');if(i.value.trim())say(i.value.trim());i.value=''};
+const ch=document.getElementById('chips');for(const c of ['Hi, how much for a sedan per month?','need an SUV tomorrow at DXB for 5 days','مرحبا اريد سيارة اقتصادية لمدة اسبوع','How much is the deposit?','Do tourists need an international licence?']){const b=document.createElement('button');b.type='button';b.textContent=c;b.onclick=()=>say(c);ch.appendChild(b)}
+function start(){L={};lang='en';ask=null;done=false;log.innerHTML='';add('Hi 👋 Example Rent-a-Car assistant here. I can quote, check what you need to bring and pass your booking to our team — in English or Arabic. How can I help?','bot');render()}
+document.getElementById('reset').onclick=start;start();
+</script></body></html>
