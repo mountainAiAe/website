@@ -1,42 +1,208 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Mountain AI — AI automation for UAE businesses</title>
-<meta name="description" content="AI enquiry handling, lead qualification and automation for UAE SMEs"><style>
-:root{--ink:#0f1b2d;--muted:#5b6778;--bg:#ffffff;--soft:#f3f6fa;--brand:#1f5eff;--line:#dfe5ee}
-@media (prefers-color-scheme:dark){:root{--ink:#e8edf5;--muted:#a3adbd;--bg:#0c121c;--soft:#141c28;--brand:#6f9bff;--line:#243043}}
-*{box-sizing:border-box}body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
-a{color:var(--brand)}.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-header{border-bottom:1px solid var(--line)}header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
-.logo{font-weight:800;letter-spacing:.5px}.logo span{color:var(--brand)}nav a{margin-left:18px;text-decoration:none;color:var(--muted)}
-.hero{padding:72px 0 48px}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:0 0 16px}.hero p{font-size:19px;color:var(--muted);max-width:680px}
-.btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:600;margin:8px 8px 0 0}
-.btn.alt{background:transparent;color:var(--brand);border:1px solid var(--brand)}
-section{padding:40px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.card{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:20px}.card h3{margin:0 0 8px}
-.price{font-size:22px;font-weight:700}.muted{color:var(--muted)}ul{padding-left:20px}
-footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
-.steps{counter-reset:s}.steps li{list-style:none;counter-increment:s;margin:0 0 12px;padding-left:40px;position:relative}
-.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;text-align:center;font-weight:700;line-height:28px}
-</style></head><body>
-<header><div class="wrap"><div class="logo">MOUNTAIN <span>AI</span></div>
-<nav><a href="index.html">Home</a><a href="car-rental.html">Car rental</a><a href="demo.html">Live demo</a><a href="#contact">Contact</a></nav></div></header>
-<section class="hero"><div class="wrap"><h1>AI systems that answer, qualify and follow up — so your team can sell.</h1>
-<p>Mountain AI analyses how your business handles enquiries, quotes and follow-ups, then builds practical AI automations for UAE companies. Arabic and English.</p>
-<a class="btn" href="demo.html">Try the live demo</a><a class="btn alt" href="#services">See services</a></div></section>
-<section><div class="wrap"><h2>Where AI pays back first</h2><div class="grid">
-<div class="card"><h3>Instant enquiry replies</h3><p class="muted">WhatsApp and website enquiries answered in seconds, 24/7, with your real prices and availability rules.</p></div>
-<div class="card"><h3>Lead qualification</h3><p class="muted">Dates, budget, requirements and documents collected automatically; hot leads routed to the right person.</p></div>
-<div class="card"><h3>Quotes and follow-ups</h3><p class="muted">Quotations generated from enquiries; polite follow-ups sent on time so leads don't go cold.</p></div>
-<div class="card"><h3>Reporting</h3><p class="muted">Daily numbers without manual spreadsheets: enquiries, conversions, response times.</p></div>
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Mountain AI — AI automation for UAE businesses</title><link rel="canonical" href="https://mountainai-ae.com/"><link rel="alternate" hreflang="en" href="https://mountainai-ae.com/"><link rel="alternate" hreflang="ar" href="https://mountainai-ae.com/ar.html"><link rel="alternate" hreflang="x-default" href="https://mountainai-ae.com/"><meta property="og:type" content="website"><meta property="og:url" content="https://mountainai-ae.com/"><meta property="og:image" content="https://mountainai-ae.com/assets/og-card-en.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:alt" content="Mountain AI — free demo in 24 hours, 14-day pilot AED 1,500 credited, full setup AED 7,500 + AED 1,250/month"><meta property="og:site_name" content="Mountain AI"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="assets/mountain-ai-logo-512.png">
+<meta property="og:title" content="Mountain AI — AI enquiry assistants for UAE businesses"><meta property="og:description" content="Free demo built from your website in 24 hours. 14-day pilot AED 1,500, credited in full."><meta name="description" content="AI enquiry assistants for UAE businesses. Free demo built from your own website in 24 hours; 14-day pilot AED 1,500."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet"><meta name="theme-color" content="#0d1626"><style>:root{--night:#0d1626;--dusk:#2b2350;--amber:#f2a65a;--cyan:#6fd6e8;--mist:#e8edf4;--muted:#9eabbf;--glass:rgba(255,255,255,.06);--edge:rgba(255,255,255,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--mist);font:17px/1.6 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--cyan)}a:focus-visible,.btn:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.05;margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:20;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(13,22,38,.55);border-bottom:1px solid var(--edge)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Bricolage Grotesque";font-weight:700;font-size:19px;color:var(--mist);text-decoration:none}
+.logo img{width:30px;height:30px;border-radius:8px}
+.top nav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none}.top nav::-webkit-scrollbar{display:none}
+.top nav a{color:var(--muted);text-decoration:none;font-size:15px;white-space:nowrap}.top nav a:hover{color:var(--mist)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:14px 24px;font-weight:600;text-decoration:none;font-size:16px;transition:transform .15s,box-shadow .15s}
+.btn.primary{background:var(--amber);color:#1b1205;box-shadow:0 10px 30px -8px rgba(242,166,90,.6)}
+.btn.primary:hover{transform:translateY(-1px);box-shadow:0 14px 34px -8px rgba(242,166,90,.75)}
+.btn.ghost{color:var(--mist);border:1px solid var(--edge);background:var(--glass)}
+.top .btn{padding:9px 16px;font-size:14px}
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+ background:radial-gradient(120% 80% at 70% 0%,#4a3a7a 0%,#2b2350 35%,#0d1626 75%)}
+#scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(transparent,var(--night));pointer-events:none}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:96px;padding-bottom:80px;width:100%}
+.hero h1{font-size:clamp(40px,6.4vw,84px);font-weight:700;text-wrap:balance;text-shadow:0 2px 30px rgba(13,22,38,.6)}
+.hero .lead{font-size:clamp(17px,1.6vw,20px);color:#cfd7e4;max-width:540px;margin:22px 0 30px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero .note{color:var(--muted);font-size:14px;margin-top:18px}
+/* chat card */
+.phone{justify-self:end;width:min(360px,100%);border-radius:28px;padding:14px;background:linear-gradient(160deg,rgba(255,255,255,.14),rgba(255,255,255,.04));border:1px solid var(--edge);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 40px 80px -30px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.2);transform:perspective(1200px) rotateY(-10deg) rotateX(4deg);transition:transform .4s}
+.phone .bar{display:flex;align-items:center;gap:10px;padding:6px 6px 12px;border-bottom:1px solid var(--edge)}
+.phone .av{width:34px;height:34px;border-radius:50%;background:url(assets/mountain-ai-logo-512.png) center/cover}
+.phone .bar b{font-size:14px}.phone .bar small{display:block;color:var(--cyan);font-size:12px}
+.chat{display:flex;flex-direction:column;gap:8px;padding:14px 4px 6px;min-height:330px}
+.msg{max-width:84%;padding:9px 12px;border-radius:16px;font-size:14px;line-height:1.45;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
+.msg.on{opacity:1;transform:none}
+.msg.in{align-self:flex-start;background:rgba(255,255,255,.1);border-bottom-left-radius:4px}
+.msg.out{align-self:flex-end;background:linear-gradient(135deg,#1f6f7d,#2a5a8f);border-bottom-right-radius:4px}
+.msg[dir=rtl]{font-family:"IBM Plex Sans Arabic","IBM Plex Sans",sans-serif}
+.msg.tag{align-self:center;background:rgba(242,166,90,.16);color:var(--amber);font-size:12px;border-radius:999px;padding:5px 12px}
+.typing{align-self:flex-end;display:none;gap:4px;padding:10px 12px;border-radius:14px;background:rgba(42,90,143,.7)}
+.typing.on{display:flex}.typing i{width:6px;height:6px;border-radius:50%;background:#fff;opacity:.5;animation:b 1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes b{50%{opacity:1;transform:translateY(-2px)}}
+.phone figcaption{color:var(--muted);font-size:12px;text-align:center;padding-top:8px}
+/* sections */
+section.s{padding:110px 0}
+.s h2{font-size:clamp(32px,4.4vw,56px);max-width:16ch;text-wrap:balance}
+.s .intro{color:var(--muted);max-width:60ch;margin:16px 0 0}
+.pay{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:48px;background:var(--edge);border:1px solid var(--edge);border-radius:20px;overflow:hidden}
+.pay div{background:var(--night);padding:28px 24px}.pay h3{font-size:21px;margin-bottom:10px}.pay p{color:var(--muted);margin:0;font-size:15px}
+.path{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:p;list-style:none;padding:0}
+.path li{position:relative;padding-top:70px;counter-increment:p}
+.path li::before{content:counter(p);position:absolute;top:0;left:0;font-family:"Bricolage Grotesque";font-size:56px;font-weight:700;line-height:1;background:linear-gradient(180deg,var(--amber),rgba(242,166,90,.15));-webkit-background-clip:text;background-clip:text;color:transparent}
+.path li::after{content:"";position:absolute;top:28px;left:52px;right:-14px;height:1px;background:linear-gradient(90deg,var(--edge),transparent)}
+.path li:last-child::after{display:none}
+.path b{display:block;font-family:"Bricolage Grotesque";font-size:22px;margin-bottom:6px}.path span{color:var(--muted)}
+.band{background:linear-gradient(180deg,var(--night),#141f36 30%,#141f36 70%,var(--night))}
+/* legacy content sections restyled */
+#services .grid,#faq .grid,#guides .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:40px}
+#services .card,#faq .card,#guides .card{background:var(--glass);border:1px solid var(--edge);border-radius:18px;padding:24px}
+#services .card:first-child+.card{background:linear-gradient(160deg,rgba(242,166,90,.16),rgba(255,255,255,.04));border-color:rgba(242,166,90,.45)}
+#services .card h3,#faq .card h3,#guides .card h3{font-size:20px;margin-bottom:8px;line-height:1.2}
+.price{font-family:"Bricolage Grotesque";font-size:28px;font-weight:700;color:var(--amber);margin:6px 0 10px}
+.muted{color:var(--muted)}#services ul{padding-left:18px;color:#cfd7e4;font-size:15px}
+#services h2,#faq h2,#guides h2,#contact h2{font-size:clamp(32px,4.4vw,56px)}
+#services>.wrap,#faq>.wrap,#guides>.wrap,#contact>.wrap{padding-top:100px;padding-bottom:20px}
+#guides{background:none!important}
+#contact{padding-bottom:100px}#contact .btn{margin:22px 10px 0 0}
+#contact .wrap{border-top:1px solid var(--edge)}
+footer{border-top:1px solid var(--edge);padding:30px 0 90px;color:var(--muted);font-size:14px}footer a{color:var(--muted)}
+.fab{position:fixed;right:18px;bottom:18px;z-index:30;background:#25d366;color:#05210f;font-weight:700;text-decoration:none;padding:13px 18px;border-radius:999px;box-shadow:0 10px 30px -8px rgba(37,211,102,.6)}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.phone{justify-self:start;transform:none}.pay{grid-template-columns:1fr 1fr}.path{grid-template-columns:1fr}.path li::after{display:none}.top nav{display:none}}
+@media(max-width:520px){.pay{grid-template-columns:1fr}section.s{padding:80px 0}.top .btn{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.msg{opacity:1;transform:none}}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "name": "Mountain AI", "legalName": "Mountain Information Technology Consultants Est.", "url": "https://mountainai-ae.com/", "logo": "https://mountainai-ae.com/assets/mountain-ai-logo-512.png", "email": "info@mountainai-ae.com", "telephone": "+971567773366", "areaServed": "AE", "address": {"@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE"}, "knowsLanguage": ["en", "ar"], "description": "AI enquiry assistants and business automation for UAE companies. Free demo built from your website in 24 hours; 14-day pilot AED 1,500, credited in full."}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do we need a call first?", "acceptedAnswer": {"@type": "Answer", "text": "No. Send your website on WhatsApp or email. The free demo is built only from information already public on your site, and you test it on your phone."}}, {"@type": "Question", "name": "Will the assistant make up prices?", "acceptedAnswer": {"@type": "Answer", "text": "No. It answers only from the prices, policies and FAQs you approve. Anything uncertain is handed to your team."}}, {"@type": "Question", "name": "What does the pilot cost?", "acceptedAnswer": {"@type": "Answer", "text": "AED 1,500 fixed for 14 days, credited in full against the full setup (AED 7,500 + AED 1,250/month) if you continue within 30 days. No lock-in."}}, {"@type": "Question", "name": "What happens to our customers' data?", "acceptedAnswer": {"@type": "Answer", "text": "The free demo uses only your public website. In a pilot, the assistant collects only what is needed to hand the enquiry to your team (clinics: booking details only, no medical records). We process it on your behalf under a written agreement signed before go-live that names every provider and the storage location, and logs are deleted or returned 30 days after the service ends."}}, {"@type": "Question", "name": "What results are guaranteed?", "acceptedAnswer": {"@type": "Answer", "text": "None. We don't promise a number of bookings. The end-of-pilot report shows what actually happened: enquiries handled, out-of-hours enquiries, qualified leads and handovers."}}]}]}</script></head><body><header class="top"><div class="wrap">
+<a class="logo" href="index.html" aria-label="Mountain AI home"><img src="assets/mountain-ai-logo-512.png" alt="">Mountain AI</a>
+<nav aria-label="Main"><a href="clinics.html">Clinics</a><a href="car-rental.html">Car rental</a><a href="contracting.html">Contracting</a><a href="salons.html">Salons</a><a href="#services">Pricing</a><a href="guides.html">Guides</a><a href="ar.html" lang="ar" hreflang="ar">العربية</a></nav>
+<a class="btn primary" href="pilot.html">Free demo</a>
+</div></header>
+
+<section class="hero" aria-label="Introduction">
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="wrap">
+<div>
+<h1>Every enquiry answered in seconds. Even at 2 am.</h1>
+<p class="lead">Mountain AI builds WhatsApp and website assistants for UAE businesses. They reply in Arabic and English with your real prices, qualify the customer and hand hot leads to your team.</p>
+<div class="ctas"><a class="btn primary" href="https://wa.me/971567773366?text=DEMO%20-%20please%20build%20a%20free%20demo%20for%20our%20company">Get your free demo</a><a class="btn ghost" href="demo/dental-clinic-assistant.html">Try a live demo</a></div>
+<p class="note">Send us your website. A private, working demo with your own services arrives within 24 hours. No call needed.</p>
+</div>
+<figure class="phone" aria-label="Sample conversation with an AI assistant">
+<div class="bar"><span class="av"></span><div><b>Bright Smile Dental</b><small>AI assistant · online</small></div></div>
+<div class="chat" id="chat">
+<div class="msg in">Hi, any cleaning slot tomorrow evening? How much?</div>
+<div class="msg out">Hi! A scale &amp; polish is AED 350. Tomorrow we have 6:30 pm or 7:15 pm. Which suits you?</div>
+<div class="msg in">7:15 please</div>
+<div class="msg out">Great. Your name and mobile, please? Reception will confirm within 15 minutes.</div>
+<div class="msg in" dir="rtl" lang="ar">وعندكم تبييض أسنان؟</div>
+<div class="msg out" dir="rtl" lang="ar">نعم، يبدأ تبييض الأسنان من ٩٠٠ درهم. هل تريد أن نضيفه لموعدك؟</div>
+<div class="msg tag">Hot lead sent to reception</div>
+<div class="typing" id="typing"><i></i><i></i><i></i></div>
+</div>
+<figcaption>Sample chat with a fictional clinic</figcaption>
+</figure>
+</div>
+</section>
+
+<section class="s band" id="why"><div class="wrap">
+<h2>Where AI pays back first</h2>
+<p class="intro">Most lost sales aren't lost on price. They're lost to a slow reply, a missed question or a follow-up nobody sent.</p>
+<div class="pay">
+<div><h3>Instant replies</h3><p>WhatsApp and website enquiries answered in seconds, 24/7, with your real prices and rules.</p></div>
+<div><h3>Lead qualification</h3><p>Dates, budget, requirements and documents collected automatically; hot leads routed to the right person.</p></div>
+<div><h3>Quotes &amp; follow-ups</h3><p>Quotations drafted from enquiries and polite follow-ups sent on time, so leads don't go cold.</p></div>
+<div><h3>Daily numbers</h3><p>Enquiries, conversions and response times without manual spreadsheets.</p></div>
 </div></div></section>
-<section id="services"><div class="wrap"><h2>Services</h2><div class="grid"><div class="card"><h3>AI Process Audit</h3><p class="price">AED 4,500</p><p class="muted">10 working days. We map how enquiries, quotes, follow-ups and reporting actually flow, then hand you a prioritised automation roadmap with estimated hours saved.</p><ul><li>2 workshops with your team (on-site in Dubai or online)</li><li>Process map of your top 3 workflows</li><li>Automation shortlist ranked by payback</li><li>Implementation plan and budget</li><li>Fee credited in full if you go ahead with a build within 60 days</li></ul></div><div class="card"><h3>AI Enquiry Assistant (WhatsApp) — Pilot</h3><p class="price">AED 7,500 + AED 1,250/mo</p><p class="muted">An AI assistant that replies to WhatsApp and website enquiries in seconds, 24/7, qualifies them (dates, vehicle/service, budget, delivery) and hands hot leads to your team.</p><ul><li>Setup on your WhatsApp Business number (API fees billed to you directly by Meta/BSP)</li><li>Your prices, fleet/services and FAQs loaded</li><li>Lead summary sent to staff + simple lead sheet/CRM</li><li>Arabic and English</li><li>30-day pilot with weekly tuning</li><li>Monthly: hosting, monitoring, updates</li></ul></div><div class="card"><h3>Workflow Automation Build</h3><p class="price">AED 12,000</p><p class="muted">One end-to-end automation: quotation generation, follow-up sequences, CRM updates, document processing or reporting.</p><ul><li>Requirements and design</li><li>Build, test and deploy</li><li>Staff handover and documentation</li><li>30 days of support</li></ul></div><div class="card"><h3>AI Operations Retainer</h3><p class="price">AED 6,000/mo</p><p class="muted">Your outsourced AI team: we run, monitor and keep improving your automations every month.</p><ul><li>Up to 3 improvements per month</li><li>Monitoring and fixes</li><li>Monthly results report</li></ul></div></div>
+
+<section class="s" id="how"><div class="wrap">
+<h2>See it working before you pay</h2>
+<ol class="path">
+<li><b>Free demo in 24 hours</b><span>Built only from what's already on your website. Test it on your phone like a customer would.</span></li>
+<li><b>14-day live pilot, AED 1,500</b><span>On your WhatsApp Business number or website chat, with your approved prices and FAQs, in English and Arabic.</span></li>
+<li><b>Decide on real numbers</b><span>End-of-pilot report: enquiries handled, out-of-hours enquiries, qualified leads. Pilot fee credited in full if you continue.</span></li>
+</ol>
+<p style="margin-top:44px"><a class="btn primary" href="https://wa.me/971567773366?text=DEMO%20-%20please%20build%20a%20free%20demo%20for%20our%20company">Reply DEMO on WhatsApp</a> <a class="btn ghost" href="pilot.html">Pilot details</a></p>
+</div></section>
+<section id="services"><div class="wrap"><h2>Services</h2><div class="grid"><div class="card"><h3>AI Process Audit</h3><p class="price">AED 4,500</p><p class="muted">10 working days. We map how enquiries, quotes, follow-ups and reporting actually flow, then hand you a prioritised automation roadmap with estimated hours saved.</p><ul><li>2 workshops with your team (on-site in Dubai or online)</li><li>Process map of your top 3 workflows</li><li>Automation shortlist ranked by payback</li><li>Implementation plan and budget</li><li>Fee credited in full if you go ahead with a build within 60 days</li></ul></div><div class="card"><h3>AI Enquiry Assistant (WhatsApp) — Full setup</h3><p class="price">AED 7,500 + AED 1,250/mo</p><p class="muted">An AI assistant that replies to WhatsApp and website enquiries in seconds, 24/7, qualifies them (dates, vehicle/service, budget, delivery) and hands hot leads to your team.</p><ul><li>Setup on your WhatsApp Business number (API fees billed to you directly by Meta/BSP)</li><li>Your prices, fleet/services and FAQs loaded</li><li>Lead summary sent to staff + simple lead sheet/CRM</li><li>Arabic and English</li><li>Start with the AED 1,500 14-day pilot — credited in full</li><li>30 days of weekly tuning after go-live</li><li>Monthly: hosting, monitoring, updates</li></ul></div><div class="card"><h3>Workflow Automation Build</h3><p class="price">AED 12,000</p><p class="muted">One end-to-end automation: quotation generation, follow-up sequences, CRM updates, document processing or reporting.</p><ul><li>Requirements and design</li><li>Build, test and deploy</li><li>Staff handover and documentation</li><li>30 days of support</li></ul></div><div class="card"><h3>AI Operations Retainer</h3><p class="price">AED 6,000/mo</p><p class="muted">Your outsourced AI team: we run, monitor and keep improving your automations every month.</p><ul><li>Up to 3 improvements per month</li><li>Monitoring and fixes</li><li>Monthly results report</li></ul></div></div>
 <p class="muted">Launch pricing. Third-party usage fees (e.g. WhatsApp Business API) are billed to you directly.</p></div></section>
-<section><div class="wrap"><h2>How we work</h2><ol class="steps">
-<li><b>Free 20-minute call</b> — you show us the process that costs the most time.</li>
-<li><b>Demo on your data</b> — we show the automation working with your prices/FAQs before you commit.</li>
-<li><b>Pilot</b> — live on your channels for 30 days with weekly tuning.</li>
-<li><b>Measure</b> — response time, qualified leads and bookings, before vs after.</li></ol></div></section>
+<section id="faq"><div class="wrap"><h2>Questions</h2>
+<div class="grid">
+<div class="card"><h3>Do we need a call first?</h3><p class="muted">No. Send your website on WhatsApp or email. The free demo is built only from information already public on your site, and you test it on your phone.</p></div>
+<div class="card"><h3>Will the assistant make up prices?</h3><p class="muted">No. It answers only from the prices, policies and FAQs you approve. Anything uncertain is handed to your team.</p></div>
+<div class="card"><h3>What does the pilot cost?</h3><p class="muted">AED 1,500 fixed for 14 days, credited in full against the full setup (AED 7,500 + AED 1,250/month) if you continue within 30 days. No lock-in.</p></div>
+<div class="card"><h3>What happens to our customers' data?</h3><p class="muted">The free demo uses only your public website. In a pilot, the assistant collects only what is needed to hand the enquiry to your team (clinics: booking details only, no medical records). We process it on your behalf under a written agreement signed before go-live that names every provider and the storage location, and logs are deleted or returned 30 days after the service ends. <a href="privacy.html">Privacy notice</a></p></div>
+<div class="card"><h3>What results are guaranteed?</h3><p class="muted">None. We don't promise a number of bookings. The end-of-pilot report shows what actually happened: enquiries handled, out-of-hours enquiries, qualified leads and handovers.</p></div>
+</div>
+<p class="muted">More detail on the <a href="pilot.html">pilot page</a>. Try a demo: <a href="demo/dental-clinic-assistant.html">dental clinic assistant</a> · <a href="demo/physiotherapy-clinic-assistant.html">physiotherapy clinic assistant</a> · <a href="demo/dermatology-aesthetic-clinic-assistant.html">skin &amp; aesthetic clinic assistant</a> · <a href="demo/beauty-salon-assistant.html">beauty salon assistant</a> · <a href="demo/car-rental-assistant.html">car-rental assistant</a> · <a href="demo/fitout-contractor-assistant.html">fit-out contractor assistant</a>.</p></div></section>
+<section id="guides" style="background:var(--soft)"><div class="wrap"><h2>Free guides</h2>
+<p class="muted">Short, practical PDFs you can use today with the free WhatsApp Business app and the tools you already have. No sign-up needed.</p><div class="grid">
+<div class="card"><h3>The 24/7 WhatsApp Enquiry Playbook</h3><p class="muted">For any UAE service business: a 10-minute self-audit, 16 copy-paste replies and a weekly scorecard. 5 pages.</p><a href="guides/whatsapp-enquiry-playbook.pdf">Download PDF</a> · <a href="guides/whatsapp-enquiry-playbook-ar.pdf" lang="ar" hreflang="ar">النسخة العربية</a><br><a href="guides.html">All 9 free guides for clinics, salons, car rental &amp; contractors →</a><br><a href="calculator.html">Missed-enquiry calculator (2 minutes) →</a></div>
+<div class="card"><h3>Pilot Prep Worksheet</h3><p class="muted">For any service business: one fill-in worksheet your team agrees before any assistant answers customers — approved prices, booking rules, your 10 most common questions, what it must never say and who gets handovers. 3 pages.</p><a href="guides/pilot-prep-worksheet.pdf">Download PDF</a> · <a href="guides/pilot-prep-worksheet-ar.pdf" hreflang="ar" lang="ar">النسخة العربية</a> · <a href="pilot.html#prepare">How the pilot works</a></div>
+<div class="card"><h3>Patient-Enquiry Checklist</h3><p class="muted">For dental and medical clinics: eight first-reply questions, safety lines every reply should respect, and health-data questions to ask any chat vendor. 3 pages.</p><a href="guides/patient-enquiry-checklist-clinics.pdf">Download PDF</a> · <a href="guides/patient-enquiry-checklist-clinics-ar.pdf" hreflang="ar" lang="ar">النسخة العربية</a> · <a href="clinics.html">For clinics</a></div>
+<div class="card"><h3>Aesthetic-Clinic Enquiry Checklist</h3><p class="muted">For dermatology and aesthetic clinics: eight first-reply questions, how to answer price and results questions within DHA rules, and what to do with patient photos. 3 pages.</p><a href="guides/aesthetic-clinic-enquiry-checklist.pdf">Download PDF</a> · <a href="guides/aesthetic-clinic-enquiry-checklist-ar.pdf" hreflang="ar" lang="ar">النسخة العربية</a> · <a href="demo/dermatology-aesthetic-clinic-assistant.html">Sample assistant</a></div>
+<div class="card"><h3>Physiotherapy Enquiry Checklist</h3><p class="muted">For physiotherapy clinics: eight first-reply questions, how to answer referral and insurance pre-approval questions without promising cover, and red-flag symptoms that go straight to a person. 3 pages.</p><a href="guides/physiotherapy-enquiry-checklist.pdf">Download PDF</a> · <a href="guides/physiotherapy-enquiry-checklist-ar.pdf" hreflang="ar" lang="ar" dir="rtl">النسخة العربية</a> · <a href="demo/physiotherapy-clinic-assistant.html">Sample assistant</a></div>
+<div class="card"><h3>Salon Booking-Enquiry Checklist</h3><p class="muted">For beauty salons and home-service beauty: seven first-reply questions, safe replies for price, bridal and first-time colour, and how to set up away messages and quick replies for free. 3 pages.</p><a href="guides/salon-booking-enquiry-checklist.pdf">Download PDF</a> · <a href="guides/salon-booking-enquiry-checklist-ar.pdf" hreflang="ar" lang="ar">النسخة العربية</a> · <a href="demo/beauty-salon-assistant.html">Sample assistant</a> · <a href="salons.html">For salons</a></div>
+<div class="card"><h3>Rental Enquiry Checklist</h3><p class="muted">For car-rental companies: what to ask in the first reply, which documents to mention, and what to say up front to avoid disputes. 3 pages.</p><a href="guides/rental-enquiry-checklist-car-rental.pdf">Download PDF</a> · <a href="guides/rental-enquiry-checklist-car-rental-ar.pdf" hreflang="ar" lang="ar">النسخة العربية</a> · <a href="car-rental.html">For car rental</a></div>
+<div class="card"><h3>Quote-Request Checklist</h3><p class="muted">For fit-out and contracting: eight questions that turn a vague quote request into a site visit, and a follow-up rhythm that stops quotes going quiet. 3 pages.</p><a href="guides/quote-request-checklist-contractors.pdf">Download PDF</a> · <a href="guides/quote-request-checklist-contractors-ar.pdf" hreflang="ar" lang="ar">النسخة العربية</a> · <a href="contracting.html">For contractors</a></div>
+<div class="card"><h3>WhatsApp App or Business Platform?</h3><p class="muted">What each one does, what Meta charges since per-message pricing, and why replying to customer enquiries is mostly free. Sourced from Meta's own pages. 3 pages.</p><a href="guides/whatsapp-app-vs-platform-costs-uae.pdf">Download PDF</a> · <a href="pilot.html">About the pilot</a></div>
+</div><p class="muted" style="margin-top:16px">Want to see these steps done automatically? <a href="https://wa.me/971567773366?text=DEMO%20-%20please%20build%20a%20free%20demo%20for%20our%20company">Get a free demo built from your website in 24 hours</a>.</p></div></section>
 <section id="contact"><div class="wrap"><h2>Talk to us</h2>
 <p>Tell us which process eats the most time. We reply within one business day with a short, specific suggestion.</p>
-<a class="btn" href="mailto:info@mountainai-ae.com?subject=AI%20automation%20enquiry">Email us</a><p>Email: <a href="mailto:info@mountainai-ae.com">info@mountainai-ae.com</a></p></div></section>
+<a class="btn" href="https://wa.me/971567773366?text=DEMO%20-%20please%20build%20a%20free%20demo%20for%20our%20company">WhatsApp +971 56 777 3366</a><a class="btn alt" href="mailto:info@mountainai-ae.com?subject=AI%20automation%20enquiry">Email us</a><p>Email: <a href="mailto:info@mountainai-ae.com">info@mountainai-ae.com</a></p></div></section>
 <footer><div class="wrap">© Mountain Information Technology Consultants Est. — Dubai, UAE. Information Technology Consultants.
-<br><a href="privacy.html">Privacy</a></div></footer></body></html>
+<br><a href="guides.html">Free guides</a> · <a href="pay.html">Pay an invoice</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></div></footer><a class="fab" href="https://wa.me/971567773366?text=DEMO%20-%20please%20build%20a%20free%20demo%20for%20our%20company" aria-label="WhatsApp Mountain AI">WhatsApp</a><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+// chat sequence
+var msgs=[].slice.call(document.querySelectorAll('#chat .msg')),typing=document.getElementById('typing'),i=0;
+function next(){if(i>=msgs.length){setTimeout(function(){msgs.forEach(function(m){m.classList.remove('on')});i=0;next()},6000);return}
+ var m=msgs[i++];if(m.classList.contains('out')){typing.classList.add('on');setTimeout(function(){typing.classList.remove('on');m.classList.add('on');setTimeout(next,1300)},900)}else{m.classList.add('on');setTimeout(next,1100)}}
+if(reduce){msgs.forEach(function(m){m.classList.add('on')})}else setTimeout(next,600);
+// 3D terrain
+var c=document.getElementById('scene');if(!window.THREE||!c)return;
+var r;try{r=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true})}catch(e){return}
+r.setPixelRatio(Math.min(devicePixelRatio,2));
+var scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x2b2350,0.018);
+var cam=new THREE.PerspectiveCamera(50,1,0.1,400);cam.position.set(0,16,58);
+function h2(x,y){var s=Math.sin(x*127.1+y*311.7)*43758.5453;return s-Math.floor(s)}
+function noise(x,y){var xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi,u=xf*xf*(3-2*xf),v=yf*yf*(3-2*yf);
+ var a=h2(xi,yi),b=h2(xi+1,yi),c2=h2(xi,yi+1),d=h2(xi+1,yi+1);return a+(b-a)*u+(c2-a)*v+(a-b-c2+d)*u*v}
+function fbm(x,y){var t=0,a=1,f=1,n=0;for(var o=0;o<6;o++){t+=a*noise(x*f,y*f);n+=a;a*=.5;f*=2.03}return t/n}
+function height(x,z){var d=Math.sqrt(x*x+(z+10)*(z+10));var ridge=1-Math.abs(fbm(x*.035+7,z*.035+3)*2-1);
+ return Math.pow(ridge,2.2)*22*Math.max(0,1-d/90)+fbm(x*.08,z*.08)*5-4}
+var W=150,S=170,g=new THREE.PlaneGeometry(W,W,S,S);g.rotateX(-Math.PI/2);
+var p=g.attributes.position,cols=[],cLow=new THREE.Color(0x1d2540),cMid=new THREE.Color(0x5a4a6e),cHigh=new THREE.Color(0xc9a27e),cSnow=new THREE.Color(0xf3e3d0),tmp=new THREE.Color();
+for(var k=0;k<p.count;k++){var x=p.getX(k),z=p.getZ(k),y=height(x,z);p.setY(k,y);var t=(y+4)/26;
+ if(t<.35)tmp.copy(cLow).lerp(cMid,t/.35);else if(t<.75)tmp.copy(cMid).lerp(cHigh,(t-.35)/.4);else tmp.copy(cHigh).lerp(cSnow,Math.min(1,(t-.75)/.25));cols.push(tmp.r,tmp.g,tmp.b)}
+g.setAttribute('color',new THREE.Float32BufferAttribute(cols,3));g.computeVertexNormals();
+var land=new THREE.Mesh(g,new THREE.MeshStandardMaterial({vertexColors:true,roughness:.92,metalness:.05,flatShading:false}));scene.add(land);
+var wire=new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.PlaneGeometry(W,W,60,60).rotateX(-Math.PI/2)),new THREE.LineBasicMaterial({color:0x6fd6e8,transparent:true,opacity:.0}));
+scene.add(new THREE.HemisphereLight(0x8f7cc8,0x10131f,.55));
+var sun=new THREE.DirectionalLight(0xffb36b,1.6);sun.position.set(-60,22,-40);scene.add(sun);
+var rim=new THREE.DirectionalLight(0x6fd6e8,.35);rim.position.set(50,30,40);scene.add(rim);
+// sun disc
+var sunMesh=new THREE.Mesh(new THREE.CircleGeometry(9,48),new THREE.MeshBasicMaterial({color:0xffc890,transparent:true,opacity:.85,fog:false}));sunMesh.position.set(-38,12,-120);scene.add(sunMesh);
+// message particles flowing up the ridges toward the peak
+var N=reduce?0:260,pg=new THREE.BufferGeometry(),pp=new Float32Array(N*3),seeds=[];
+for(var n=0;n<N;n++){seeds.push({a:Math.random()*Math.PI*2,r:20+Math.random()*50,s:.15+Math.random()*.35,t:Math.random()})}
+pg.setAttribute('position',new THREE.BufferAttribute(pp,3));
+var dot=document.createElement('canvas');dot.width=dot.height=64;var dx=dot.getContext('2d'),gr=dx.createRadialGradient(32,32,0,32,32,32);gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(.35,'rgba(160,240,255,.8)');gr.addColorStop(1,'rgba(160,240,255,0)');dx.fillStyle=gr;dx.fillRect(0,0,64,64);
+var pts=new THREE.Points(pg,new THREE.PointsMaterial({map:new THREE.CanvasTexture(dot),color:0x8fe8f5,size:.9,transparent:true,opacity:.9,blending:THREE.AdditiveBlending,depthWrite:false}));scene.add(pts);
+var beacon=new THREE.PointLight(0x6fd6e8,2.2,40);var peakY=height(0,-10)+2;beacon.position.set(0,peakY,-10);scene.add(beacon);
+function size(){var w=c.clientWidth,h=c.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;cam.position.z=w<700?78:58;cam.updateProjectionMatrix()}
+size();addEventListener('resize',size);
+var mx=0,my=0;addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+var visible=true;new IntersectionObserver(function(e){visible=e[0].isIntersecting}).observe(c);
+var t0=performance.now();
+function frame(now){requestAnimationFrame(frame);if(!visible)return;var t=(now-t0)/1000;
+ cam.position.x+=((Math.sin(t*.05)*8+mx*10)-cam.position.x)*.03;cam.position.y+=((16-my*6)-cam.position.y)*.03;cam.lookAt(0,6,-10);
+ for(var n=0;n<N;n++){var s=seeds[n];s.t+=s.s*.006;if(s.t>1){s.t=0;s.a=Math.random()*Math.PI*2;s.r=20+Math.random()*50}
+  var rr=s.r*(1-s.t),x=Math.cos(s.a+s.t*1.2)*rr,z=-10+Math.sin(s.a+s.t*1.2)*rr;pp[n*3]=x;pp[n*3+1]=height(x,z)+.8+s.t*2;pp[n*3+2]=z}
+ pg.attributes.position.needsUpdate=true;beacon.intensity=1.8+Math.sin(t*2)*.6;r.render(scene,cam)}
+if(reduce){r.render(scene,cam)}else requestAnimationFrame(frame);
+})();
+</script>
+</body></html>

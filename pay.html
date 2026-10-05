@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pay Mountain AI</title><link rel="canonical" href="https://mountainai-ae.com/pay.html"><meta name="robots" content="noindex"><link rel="icon" href="assets/mountain-ai-logo-512.png">
+<meta name="description" content="Pay a Mountain AI invoice by crypto (MoonPay Commerce) or bank transfer in AED.">
+<style>
+:root{--bg:#f6f8fb;--ink:#0f1b2d;--muted:#5b6778;--card:#fff;--line:#dfe5ee;--brand:#1f5eff;--ok:#0a8f3c}
+@media (prefers-color-scheme:dark){:root{--bg:#0c121c;--ink:#e8edf5;--muted:#a3adbd;--card:#141c28;--line:#243043;--brand:#6b93ff;--ok:#4fd07f}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+.w{max-width:880px;margin:0 auto;padding:0 16px}header{padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+header b{font-size:18px}a{color:var(--brand)}.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:12px 18px;border-radius:10px;font-weight:600}
+.btn.alt{background:transparent;color:var(--brand);border:1px solid var(--brand)}
+h1{font-size:clamp(26px,5vw,38px);line-height:1.2;margin:24px 0 10px}h2{font-size:22px;margin:36px 0 10px}.lead{color:var(--muted);font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card h3{margin:0 0 6px;font-size:17px}.price{font-size:30px;font-weight:800}.muted{color:var(--muted)}ol li,ul li{margin:6px 0}
+footer{margin:48px 0 24px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
+.card a.go{display:inline-block;margin-top:8px;font-weight:600}
+.fab{position:fixed;right:16px;bottom:16px;background:#25d366;color:#fff;text-decoration:none;padding:12px 16px;border-radius:30px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.hr{display:flex;align-items:center;gap:14px}
+@media(max-width:640px){footer{padding-bottom:84px}}.item{display:flex;flex-direction:column;gap:6px}.item .price{font-size:26px}.usd{color:var(--muted);font-size:14px}
+.item .btn{text-align:center;margin-top:6px}.btn[aria-disabled=true]{background:var(--line);color:var(--muted);pointer-events:none}
+.item.hl{outline:2px solid var(--brand)}.bank{font-family:ui-monospace,Menlo,monospace;font-size:14px;word-break:break-all}
+.note{font-size:14px;color:var(--muted)}</style>
+</head><body><div class="w">
+<header><a href="index.html" style="text-decoration:none;color:inherit"><b>Mountain AI</b></a><span class="hr"><a href="pay-ar.html" lang="ar">العربية</a><a class="btn alt" href="https://wa.me/971567773366?text=PAYMENT%20question">Ask on WhatsApp</a></span></header>
+<h1>Pay Mountain AI</h1>
+<p class="lead">Pay only for what is on your quotation. Choose crypto through MoonPay Commerce, or a bank transfer in AED.</p>
+
+<h2>Pay with crypto</h2>
+<p class="note">Processed by MoonPay Commerce. Enter the amount on your invoice or quotation in AED. You pay the USD equivalent (AED 3.6725 = USD 1) in USDC, USDT, ETH, SOL, BTC or another supported token from your wallet.</p>
+<div class="card item" id="amountCard">
+<label for="aed"><b>Amount (AED)</b></label>
+<input id="aed" type="number" inputmode="decimal" min="1" step="0.01" placeholder="e.g. 1500" style="font-size:22px;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%">
+<div class="usd" id="usd">≈ USD 0.00</div>
+<button class="btn" id="go" type="button" style="border:0;cursor:pointer;font-size:16px">Pay with crypto</button>
+<p class="note" id="err" style="color:#c0392b;display:none"></p>
+</div>
+<div id="helioCheckoutContainer" style="margin-top:14px"></div>
+
+<h2>Pay by bank transfer (AED)</h2>
+<div class="card"><p class="bank">Account name: MOUNTAIN INFORMATION TECHNOLOGY CO<br>Bank: Mashreq<br>Account: 019101500499<br>IBAN: AE110330000019101500499</p>
+<p class="note">Use your company name or quotation number as the reference, then send the transfer slip on <a href="https://wa.me/971567773366">WhatsApp</a> or to <a href="mailto:info@mountainai-ae.com">info@mountainai-ae.com</a>.</p></div>
+
+<h2>Good to know</h2>
+<p class="note">A receipt is emailed once payment is confirmed. Crypto payments go straight from your wallet to Mountain and can't be reversed by your bank, so check the amount before you confirm. Refunds, if due under your quotation, are paid back the same way. No VAT is charged until Mountain is VAT-registered.</p>
+
+<footer>Mountain AI — Mountain Information Technology Consultants Est., Dubai, United Arab Emirates · <a href="mailto:info@mountainai-ae.com">info@mountainai-ae.com</a> · WhatsApp <a href="https://wa.me/971567773366">+971 56 777 3366</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
+</div>
+<script type="module" crossorigin src="https://embed.hel.io/assets/index-v1.js"></script>
+<script>
+(function(){
+var PAYLINK="6ac3e9ac56083230a8be465e", RATE=3.6725;
+var aed=document.getElementById('aed'), usd=document.getElementById('usd'), err=document.getElementById('err'), go=document.getElementById('go');
+function usdVal(){var a=parseFloat(aed.value);return a>0?Math.round(a/RATE*100)/100:0}
+function upd(){usd.textContent='≈ USD '+usdVal().toFixed(2)}
+aed.addEventListener('input',upd);
+var q=new URLSearchParams(location.search).get('aed'); if(q){aed.value=q;upd()}
+go.addEventListener('click',function(){
+  var u=usdVal(); err.style.display='none';
+  if(u<1){err.textContent='Please enter the amount in AED.';err.style.display='block';return}
+  if(typeof window.helioCheckout!=='function'){err.textContent='Checkout is still loading, please try again in a moment.';err.style.display='block';return}
+  var c=document.getElementById('helioCheckoutContainer'); c.innerHTML='';
+  window.helioCheckout(c,{paylinkId:PAYLINK,theme:{themeMode:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')},primaryColor:'#1f5eff',neutralColor:'#5A6578',amount:u.toFixed(2)});
+  c.scrollIntoView({behavior:'smooth'});
+});
+})();
+</script>
+</body></html>

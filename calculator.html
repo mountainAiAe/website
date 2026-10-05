@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Missed-enquiry calculator for UAE businesses | Mountain AI</title><link rel="canonical" href="https://mountainai-ae.com/calculator.html"><meta property="og:type" content="website"><meta property="og:url" content="https://mountainai-ae.com/calculator.html"><meta property="og:image" content="https://mountainai-ae.com/assets/og-card-en.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="Mountain AI"><meta name="twitter:card" content="summary_large_image"><meta property="og:title" content="Missed-enquiry calculator | Mountain AI"><meta property="og:description" content="Put in your own numbers and see roughly what unanswered after-hours WhatsApp and website enquiries may be costing you each month. Free, nothing is sent anywhere."><link rel="icon" href="assets/mountain-ai-logo-512.png">
+<meta name="description" content="Put in your own numbers and see roughly what unanswered after-hours WhatsApp and website enquiries may be costing you each month. Free, nothing is sent anywhere.">
+<style>
+:root{--bg:#f6f8fb;--ink:#0f1b2d;--muted:#5b6778;--card:#fff;--line:#dfe5ee;--brand:#1f5eff;--ok:#0a8f3c;--warn:#b45309}
+@media (prefers-color-scheme:dark){:root{--bg:#0c121c;--ink:#e8edf5;--muted:#a3adbd;--card:#141c28;--line:#243043;--brand:#6b93ff;--ok:#4fd07f;--warn:#f0a65a}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+.w{max-width:880px;margin:0 auto;padding:0 16px}header{padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+header b{font-size:18px}a{color:var(--brand)}.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:12px 18px;border-radius:10px;font-weight:600;border:0;font-size:16px;cursor:pointer}
+.btn.alt{background:transparent;color:var(--brand);border:1px solid var(--brand)}
+h1{font-size:clamp(26px,5vw,38px);line-height:1.2;margin:24px 0 10px}h2{font-size:22px;margin:36px 0 10px}.lead{color:var(--muted);font-size:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+label{display:block;font-weight:600;font-size:15px}label small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:2px}
+input{width:100%;margin-top:6px;padding:11px 12px;font-size:17px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px}
+.num{font-size:28px;font-weight:800;overflow-wrap:anywhere}.muted{color:var(--muted)}.small{font-size:14px}
+.note{border-left:4px solid var(--warn);padding:8px 12px;background:var(--card);border-radius:6px}
+footer{margin:48px 0 24px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
+.fab{position:fixed;right:16px;bottom:16px;background:#25d366;color:#fff;text-decoration:none;padding:12px 16px;border-radius:30px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+@media(max-width:640px){footer{padding-bottom:84px}}ol li,ul li{margin:6px 0}
+</style></head><body>
+<div class="w">
+<header><a href="index.html" style="text-decoration:none;color:inherit"><b>Mountain AI</b></a><a class="btn alt" href="https://wa.me/971567773366?text=DEMO%20-%20please%20build%20a%20demo%20for%20our%20company">Get your demo</a></header>
+<h1>What are unanswered enquiries costing you?</h1>
+<p class="lead">A 2-minute calculator for clinics, salons, car-rental companies and contractors. Use your own numbers — a week of WhatsApp chats and your booking records are enough. Everything is calculated in your browser; nothing is sent or stored.</p>
+
+<div class="card">
+<div class="form">
+<label>Enquiries per week<small>WhatsApp, website, Instagram and calls together</small><input id="q" type="number" inputmode="decimal" min="0" placeholder="e.g. 80"></label>
+<label>% arriving when nobody can reply quickly<small>Evenings, Fridays, holidays, or while staff are busy</small><input id="a" type="number" inputmode="decimal" min="0" max="100" placeholder="e.g. 30"></label>
+<label>% of those you think you lose<small>They booked elsewhere or never answered your late reply</small><input id="l" type="number" inputmode="decimal" min="0" max="100" placeholder="e.g. 25"></label>
+<label>% of answered enquiries that become customers<small>From your own bookings ÷ enquiries</small><input id="c" type="number" inputmode="decimal" min="0" max="100" placeholder="e.g. 20"></label>
+<label>Average value of a first sale (AED)<small>First visit, first rental, first job — not lifetime value</small><input id="v" type="number" inputmode="decimal" min="0" placeholder="e.g. 600"></label>
+</div>
+<div id="out" aria-live="polite">
+<p class="muted small" id="hint" style="margin-top:14px">Fill in all five boxes to see your estimate.</p>
+<div class="res" id="res" hidden>
+<div><div class="muted small">Enquiries lost per month</div><div class="num" id="r1">–</div></div>
+<div><div class="muted small">Customers lost per month</div><div class="num" id="r2">–</div></div>
+<div><div class="muted small">First-sale revenue at risk per month</div><div class="num" id="r3">–</div></div>
+<div><div class="muted small">Extra customers a month to cover AED 1,250/month</div><div class="num" id="r4">–</div></div>
+</div>
+<p id="send" hidden style="margin-top:14px"><a class="btn" id="wa" href="#">Send my numbers &amp; ask for a free demo</a></p>
+</div>
+</div>
+<p class="note small">This is an estimate from <b>your</b> inputs, not a forecast or a promise. A month is counted as 4.33 weeks. An assistant can only recover enquiries you are losing because nobody replied in time — it does not change your prices, reviews or availability. The best way to know your real numbers is to measure them for 14 days, which is what the pilot does.</p>
+
+<h2>How the numbers are worked out</h2>
+<ol>
+<li><b>Enquiries lost per month</b> = enquiries per week × 4.33 × % arriving when nobody can reply × % of those lost.</li>
+<li><b>Customers lost per month</b> = enquiries lost × your own conversion rate.</li>
+<li><b>Revenue at risk</b> = customers lost × average first-sale value. Repeat visits are left out on purpose, so the figure is conservative.</li>
+<li><b>Break-even</b> = AED 1,250 (our monthly fee after setup) ÷ average first-sale value, rounded up.</li>
+</ol>
+
+<h2>Find out with real data, not guesses</h2>
+<p>Send us your website and within 24 hours we build a free, private demo set up with your own services. If you like it, run a 14-day pilot for a fixed AED 1,500: it answers enquiries day and night and reports how many came in, when, and how many became booking requests. The AED 1,500 is credited in full against the full setup (AED 7,500 + AED 1,250/month) if you continue within 30 days.</p>
+<p><a class="btn" href="https://wa.me/971567773366?text=DEMO%20-%20please%20build%20a%20demo%20for%20our%20company">Reply DEMO on WhatsApp</a> &nbsp; <a href="pilot.html">How the pilot works</a> · <a href="guides.html">Free guides</a></p>
+<p class="small muted">Not sure what your numbers are? The free <a href="guides/whatsapp-enquiry-playbook.pdf">WhatsApp Enquiry Playbook</a> includes a 10-minute self-audit and a weekly scorecard to count them.</p>
+<footer>Mountain AI — Mountain Information Technology Consultants Est., Dubai, United Arab Emirates · <a href="mailto:info@mountainai-ae.com">info@mountainai-ae.com</a> · WhatsApp <a href="https://wa.me/971567773366">+971 56 777 3366</a> · <a href="https://mountainai-ae.com">mountainai-ae.com</a> · <a href="privacy.html">Privacy</a></footer>
+</div>
+<a class="fab" href="https://wa.me/971567773366?text=DEMO%20-%20please%20build%20a%20demo%20for%20our%20company">WhatsApp</a>
+<script>
+(function(){var ids=['q','a','l','c','v'],f=function(n){return Math.round(n).toLocaleString('en-US')};
+function val(id){var s=document.getElementById(id).value;if(s==='')return null;var n=parseFloat(s);if(isNaN(n)||n<0)return null;if(id!=='q'&&id!=='v'&&n>100)n=100;return n}
+function run(){var x=ids.map(val);var ok=x.every(function(n){return n!==null});
+document.getElementById('hint').hidden=ok;document.getElementById('res').hidden=!ok;document.getElementById('send').hidden=!ok;if(!ok)return;
+var lost=x[0]*4.33*x[1]/100*x[2]/100,cust=lost*x[3]/100,rev=cust*x[4],be=x[4]>0?Math.ceil(1250/x[4]):null;
+document.getElementById('r1').textContent='≈ '+f(lost);document.getElementById('r2').textContent='≈ '+(cust<10?cust.toFixed(1):f(cust));
+document.getElementById('r3').textContent='≈ AED '+f(rev);document.getElementById('r4').textContent=be===null?'–':be;
+var msg='DEMO - calculator: '+x[0]+' enquiries/week, '+x[1]+'% after hours, '+x[2]+'% lost, '+x[3]+'% conversion, AED '+x[4]+' first sale. Estimated AED '+f(rev)+'/month at risk. Please build a free demo for our company.';
+document.getElementById('wa').href='https://wa.me/971567773366?text='+encodeURIComponent(msg)}
+ids.forEach(function(id){document.getElementById(id).addEventListener('input',run)});run()})();
+</script>
+</body></html>
