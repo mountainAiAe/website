@@ -1,7 +1,7 @@
 /* Mountain AI theme for demo chat pages */
 html:root{--bg:#0d1626;--ink:#e8edf5;--me:#1f6f7d;--bot:rgba(255,255,255,.08);--brand:#6fd6e8;--muted:#9eabbf;--card:rgba(13,22,38,.72);--line:rgba(255,255,255,.13);--ok:#4fd07f;--warn:rgba(242,166,90,.16);color-scheme:dark}
 html{background:#0d1626 radial-gradient(120% 70% at 70% 0%,#3a2f66 0%,#2b2350 30%,#0d1626 70%) fixed}
-body{background:transparent!important;font-family:"IBM Plex Sans",system-ui,sans-serif;color:var(--ink)}
+body{background:transparent!important;font-family:"IBM Plex Sans","IBM Plex Sans Arabic",system-ui,sans-serif;color:var(--ink)}
 #mbg{position:fixed;inset:0;width:100vw;height:100vh;z-index:-2;pointer-events:none}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(13,22,38,.25),rgba(13,22,38,.8))}
 h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif}

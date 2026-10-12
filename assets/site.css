@@ -41,7 +41,7 @@ html[dir=rtl] .w>h1{line-height:1.35!important}
 .card{transition:transform .25s ease,box-shadow .25s,border-color .25s;transform-style:preserve-3d}
 .card:hover{border-color:rgba(111,214,232,.4)!important;box-shadow:0 30px 60px -28px rgba(0,0,0,.9),0 0 0 1px rgba(111,214,232,.15),inset 0 1px 0 rgba(255,255,255,.12)}
 .grid>.card:nth-child(2):has(.price){background:linear-gradient(160deg,rgba(242,166,90,.18),rgba(255,255,255,.04))!important;border-color:rgba(242,166,90,.45)!important}
-.note{border-left:3px solid var(--amber)!important}
+.note{border-left:1px solid var(--edge)!important;border-inline-start:3px solid var(--amber)!important}
 .price,.num{font-family:"Bricolage Grotesque",sans-serif;color:var(--amber)!important}
 .tag{color:var(--cyan)!important}
 .steps li:before{background:linear-gradient(135deg,var(--amber),#d9793a)!important;color:#1b1205!important}
@@ -63,3 +63,5 @@ section[style*="--soft"]{background:linear-gradient(180deg,transparent,rgba(43,3
 header b,header .btn{white-space:nowrap}
 @media(max-width:520px){.w>header{flex-wrap:wrap;gap:8px}.w>header .btn{padding:7px 12px;font-size:13px}}
 .res>div{padding:12px 14px!important}
+/* tap targets >=24px on touch screens (WCAG 2.2 2.5.8) */
+@media (pointer:coarse){.card>a,footer a{display:inline-block;padding:7px 0}}
