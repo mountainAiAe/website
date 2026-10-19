@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Order status — Mountain AI</title>
+<meta name="robots" content="noindex">
+<style>
+:root{--night:#0d1626;--amber:#f2a65a;--cyan:#6fd6e8;--mist:#e8edf4;--muted:#9eabbf;--glass:rgba(255,255,255,.06);--edge:rgba(255,255,255,.12);--good:#5ad1a0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--night);color:var(--mist);font:17px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+a{color:var(--cyan)}
+.wrap{max-width:680px;margin:0 auto;padding:0 20px}
+h1{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:32px;margin:56px 0 8px}
+p.sub{color:var(--muted);margin:0 0 26px}
+form{display:flex;gap:10px}
+input{flex:1;padding:12px 14px;border-radius:10px;border:1px solid var(--edge);background:rgba(0,0,0,.25);color:var(--mist);font:inherit;text-transform:uppercase;letter-spacing:.06em;font-family:ui-monospace,monospace}
+.btn{border-radius:999px;padding:12px 22px;font-weight:600;border:none;background:var(--amber);color:#1b1205;cursor:pointer;font:inherit;font-weight:600}
+.card{margin-top:26px;background:var(--glass);border:1px solid var(--edge);border-radius:16px;padding:24px;display:none}
+.card.on{display:block}
+.ref{font-family:ui-monospace,monospace;letter-spacing:.06em;color:var(--muted);font-size:14px}
+.status{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:26px;margin:6px 0 4px;color:var(--good)}
+/* A cancelled or refunded order is not good news and must not be coloured as if it were. */
+.status.stopped{color:var(--muted)}
+ol li.stopped:before{background:var(--muted)}
+.item{color:var(--muted);font-size:15px;margin-bottom:18px}
+ol{list-style:none;padding:0;margin:0;border-left:2px solid var(--edge)}
+ol li{padding:0 0 16px 18px;position:relative}
+ol li:before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--good)}
+ol li b{display:block;font-weight:600}
+ol li span{color:var(--muted);font-size:13px}
+.err{margin-top:20px;padding:12px 14px;border-radius:10px;background:rgba(255,120,120,.1);border:1px solid rgba(255,120,120,.4);color:#ff9c9c;display:none}
+.err.on{display:block}
+footer{margin-top:50px;padding-bottom:50px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Order status</h1>
+  <p class="sub">Enter the reference we sent you. It looks like <code>YF-XXXXXXXX</code>.</p>
+  <form id="f">
+    <input id="ref" placeholder="YF-XXXXXXXX" maxlength="20" required autocomplete="off">
+    <button class="btn" type="submit">Check</button>
+  </form>
+  <div class="err" id="err"></div>
+  <div class="card" id="card">
+    <div class="ref" id="cref"></div>
+    <div class="status" id="cstatus"></div>
+    <div class="item" id="citem"></div>
+    <ol id="ctimeline"></ol>
+    <div style="margin-top:18px;color:var(--muted);font-size:14px" id="cnote"></div>
+  </div>
+  <footer><a href="/store.html">← Back to the store</a></footer>
+</div>
+<script>
+const API = "https://ultron.mountainai-ae.com/api/public";
+const $ = (id) => document.getElementById(id);
+function esc(s){const d=document.createElement("div");d.textContent=s??"";return d.innerHTML;}
+
+async function look(ref) {
+  $("err").className = "err"; $("card").className = "card";
+  try {
+    const r = await fetch(`${API}/orders/${encodeURIComponent(ref)}`);
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail || "Not found.");
+    $("cref").textContent = d.reference;
+    const stopped = ["cancelled", "refunded"].includes(d.status);
+    $("cstatus").textContent = d.status_label;
+    $("cstatus").className = "status" + (stopped ? " stopped" : "");
+    $("citem").textContent = d.item;
+    $("cnote").textContent = d.note;
+    $("ctimeline").innerHTML = d.timeline.map(t =>
+      `<li class="${stopped ? "stopped" : ""}"><b>${esc(t.step)}</b>` +
+      `<span>${new Date(t.at).toLocaleString()}</span></li>`).join("");
+    $("card").className = "card on";
+    history.replaceState(null, "", `?ref=${encodeURIComponent(d.reference)}`);
+  } catch (e) {
+    $("err").textContent = e.message + " Check the reference, or email info@mountainai-ae.com.";
+    $("err").className = "err on";
+  }
+}
+
+$("f").addEventListener("submit", (ev) => { ev.preventDefault(); look($("ref").value.trim()); });
+const pre = new URLSearchParams(location.search).get("ref");
+if (pre) { $("ref").value = pre; look(pre); }
+</script>
+</body>
+</html>
